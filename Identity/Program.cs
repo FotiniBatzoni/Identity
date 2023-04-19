@@ -21,8 +21,12 @@ namespace Identity
             //Console.ReadLine();
 
             var user = userManager.FindByName(username);
-            var claimResult = userManager.AddClaim(user.Id, new Claim("given_name", "Scott"));
-            Console.WriteLine($"Claim: {0}", claimResult.Succeeded);
+            //var claimResult = userManager.AddClaim(user.Id, new Claim("given_name", "Scott"));
+            //Console.WriteLine($"Claim: {0}", claimResult.Succeeded);
+
+            var isMatch = userManager.CheckPassword(user, password);
+            Console.WriteLine($"Password Mtach {0}", isMatch);
+            Console.ReadLine();
         }
     }
 }
